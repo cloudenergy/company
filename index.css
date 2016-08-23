@@ -1,0 +1,46 @@
+/** {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+    font-size: 13px;
+    font-family: "Microsoft YaHei";
+}
+
+.m-0-a {
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1920px;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+#header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.flexslider {
+    border: 0!important;
+}
+
+.nav {
+    display: inline-block;
+    margin-left: -8%;
+}
+
+.nav li {
+    display: inline-block;
+    height: 54px;
+    color: #cdcbcb;
+    font-size: 18px;
+    line-height: 84px;
+    margin: 0 25px;
+}*/
