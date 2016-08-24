@@ -1,51 +1,62 @@
 // 引入gulp
-var gulp = require('gulp');
-// 引入组件
-var concat = require('gulp-concat'), //合并文件
-    rename = require('gulp-rename'), //重命名
-    sass = require('gulp-scss'), //编译
-    jshint = require('gulp-jshint'), //js检查
-    uglify = require('gulp-uglify'), // js压缩
+var gulp = require('gulp'),
+    // 引入组件
     browerSync = require('browser-sync'), // browser-sync
+    pkg = require('gulp-packages')(gulp, [
+        'concat',
+        'rename',
+        'image',
+        'sass',
+        'imagemin',
+        'jshint'
+    ]),
     path = {
         src: {
-            html: './.html',
-            sass: './assets/.scss',
-            js: './assets/*.js'
+            html: './src/*.html',
+            sass: './src/assets/css/*.scss',
+            js: './src/assets/js/*.js',
+            img: './src/assets/img/*.png'
         },
         dest: {
-            html: './',
-            css: './assets',
-            js: './assets'
+            html: './public',
+            css: './public',
+            js: './public',
+            img: './public/img'
         }
     };
 gulp.task('html', function() {
     gulp.src(path.src.html)
         .pipe(gulp.dest(path.dest.html));
 });
+
 gulp.task('sass', function() {
     gulp.src(path.src.sass)
-        .pipe(sass())
-        .pipe(rename({
-            suffix: '.s'
+        .pipe(pkg.sass())
+        .pipe(pkg.rename({
+            suffix: '.min'
         }))
-        .pipe(gulp.dest(path.dest.css))
+        .pipe(gulp.dest(path.dest.css));
 });
 gulp.task('js', function() {
     gulp.src(path.src.js)
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'))
-        .pipe(rename({
+        .pipe(pkg.jshint())
+        .pipe(pkg.jshint.reporter('default'))
+        .pipe(pkg.rename({
             suffix: '.min'
         }))
-        .pipe(uglify())
         .pipe(gulp.dest(path.dest.js));
+});
+gulp.task('image', function() {
+    gulp.src(path.src.img)
+        .pipe(pkg.image())
+        .pipe(gulp.dest(path.dest.img));
 });
 gulp.task('browserSync', function() {
     var files = [
         path.dest.html,
         path.dest.css,
-        path.dest.js
+        path.dest.js,
+        path.dest.img
     ];
     browerSync.init(files, {
         server: {
@@ -54,8 +65,10 @@ gulp.task('browserSync', function() {
         }
     });
 });
+
+
 gulp.task('default', function() {
-    gulp.start('sass', 'js', 'browserSync');
+    gulp.start('html', 'sass', 'js', 'image', 'browserSync');
     gulp.watch(path.src.html, function() {
         gulp.run('browserSync');
     });
@@ -66,29 +79,6 @@ gulp.task('default', function() {
     //监听JS
     gulp.watch(path.src.js, function() {
         gulp.run('js');
-    });
-});
-gulp.task('watch', function() {
-    livereload.listen();
-    server.listen(port, function(err) {
-        if (err) {
-            return console.log(err);
-        }
-
-        // 监听html
-        gulp.watch('./*.html', function(event) {
-            gulp.run('html');
-        })
-
-        // 监听css
-        gulp.watch('./assets/*.scss', function() {
-            gulp.run('css');
-        });
-
-        // 监听js
-        gulp.watch('./assets/*.js', function() {
-            gulp.run('js');
-        });
     });
 });
 
@@ -104,5 +94,8 @@ gulp.task('watch', function() {
     //监听JS
     gulp.watch(path.src.js, function() {
         gulp.run('js');
+    });
+    gulp.watch(path.src.img, function() {
+        gulp.run('image');
     });
 });

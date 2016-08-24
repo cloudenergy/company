@@ -1,0 +1,8 @@
+{
+    "cwd": "../static/",
+    "directory": "libs/",
+    "color": true,
+    "save": true,
+    "save-exact": true,
+    "strict-ssl": true
+}

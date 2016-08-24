@@ -1,0 +1,28 @@
+{
+  "name": "gugecc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudenergy/gugecc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloudenergy/gugecc/issues"
+  },
+  "homepage": "https://github.com/cloudenergy/gugecc#readme",
+  "dependencies": {
+    "gulp-jshint": "^2.0.1"
+  },
+  "devDependencies": {
+    "gulp-image": "^2.5.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-minify-html": "^1.0.6",
+    "jshint": "^2.9.3"
+  }
+}
