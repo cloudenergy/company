@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "gulp-image": "^2.5.0",
+    "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",
     "gulp-minify-html": "^1.0.6",
     "jshint": "^2.9.3"

@@ -5,9 +5,8 @@ var gulp = require('gulp'),
     pkg = require('gulp-packages')(gulp, [
         'concat',
         'rename',
-        'image',
-        'sass',
         'imagemin',
+        'sass',
         'jshint'
     ]),
     path = {
@@ -46,10 +45,11 @@ gulp.task('js', function() {
         }))
         .pipe(gulp.dest(path.dest.js));
 });
-gulp.task('image', function() {
+
+gulp.task('imagemin', function() {
     gulp.src(path.src.img)
-        .pipe(pkg.image())
-        .pipe(gulp.dest(path.dest.img));
+        .pipe(pkg.imagemin())
+        .pipe(gulp.dest(path.dest.img))
 });
 gulp.task('browserSync', function() {
     var files = [
@@ -62,23 +62,16 @@ gulp.task('browserSync', function() {
         server: {
             baseDir: './',
             directory: true
-        }
+        },
+        open: false
     });
 });
 
 
 gulp.task('default', function() {
-    gulp.start('html', 'sass', 'js', 'image', 'browserSync');
+    gulp.start('html', 'sass', 'js', 'imagemin', 'browserSync');
     gulp.watch(path.src.html, function() {
         gulp.run('browserSync');
-    });
-    //监听SASS
-    gulp.watch(path.src.sass, function() {
-        gulp.run('sass');
-    });
-    //监听JS
-    gulp.watch(path.src.js, function() {
-        gulp.run('js');
     });
 });
 
@@ -86,16 +79,5 @@ gulp.task('watch', function() {
     //监听HTML
     gulp.watch(path.src.html, function() {
         gulp.run('html');
-    });
-    //监听SASS
-    gulp.watch(path.src.sass, function() {
-        gulp.run('sass');
-    });
-    //监听JS
-    gulp.watch(path.src.js, function() {
-        gulp.run('js');
-    });
-    gulp.watch(path.src.img, function() {
-        gulp.run('image');
     });
 });
