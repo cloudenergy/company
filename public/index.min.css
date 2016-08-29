@@ -19,9 +19,6 @@ a {
   font-size: inherit;
   text-decoration: none; }
 
-.m-o {
-  margin: auto; }
-
 .m-0-a {
   margin: 0 auto; }
 
@@ -40,8 +37,8 @@ a {
 .w-100p {
   width: 100%; }
 
-.w-33p {
-  width: 33%; }
+.w-30p {
+  width: 30%; }
 
 .w-1p {
   width: 1%; }
@@ -89,16 +86,17 @@ a {
 header {
   width: 100%; }
 
+.nav-container {
+  width: 100%;
+  z-index: 99; }
+
 .nav {
-  top: 0;
-  left: 50%;
   height: 53px;
-  width: 600px;
-  margin-left: -400px;
-  z-index: 99;
-  height: 53px;
-  width: 600px;
-  padding-left: 217px;
+  min-width: 780px;
+  max-width: 980px;
+  margin-top: 30px;
+  padding-left: 220px;
+  text-align: center;
   background: url("./img/logo.png") 0 0 no-repeat; }
   .nav li {
     height: 53px;
@@ -136,6 +134,9 @@ header {
       font-size: 12px;
       line-height: 18px; }
 
+.banner img {
+  max-width: 100%; }
+
 #myslider img {
   max-width: 100%; }
 
@@ -158,11 +159,16 @@ header {
 .w-630 {
   width: 630px; }
 
+@media (max-width: 1200px) {
+  .w-630 {
+    width: 400px; } }
+
 .content {
   max-width: 100%;
   padding-bottom: 30px; }
   .content .container {
-    max-width: 1220px; }
+    max-width: 1200px;
+    min-width: 1000px; }
     .content .container .content-text {
       color: #6c6e6f;
       line-height: 60px; }
