@@ -8,8 +8,8 @@
 
 html,
 body {
-  height: 100%;
-  min-width: 600px; }
+  max-width: 100%;
+  min-width: 1000px; }
 
 button {
   outline: none; }
@@ -57,6 +57,9 @@ a {
 
 .m-b-20 {
   margin-bottom: 20px; }
+
+.m-l-15 {
+  margin-left: 15px; }
 
 .m-l--16 {
   margin-left: -16px; }
@@ -134,8 +137,10 @@ header {
       font-size: 12px;
       line-height: 18px; }
 
-.banner img {
-  max-width: 100%; }
+.banner {
+  max-width: 1920px; }
+  .banner img {
+    max-width: 100%; }
 
 #myslider img {
   max-width: 100%; }
@@ -169,8 +174,14 @@ header {
   .content .container {
     max-width: 1200px;
     min-width: 1000px; }
+    .content .container .content-green {
+      color: #447413;
+      line-height: 60px; }
     .content .container .content-text {
       color: #6c6e6f;
+      line-height: 60px; }
+    .content .container .content-service {
+      color: #000;
       line-height: 60px; }
 
 .content-btn {
@@ -210,6 +221,16 @@ header {
   height: 57px;
   padding: 30px 0;
   background: url("./img/contact.png") 0 30px no-repeat; }
+
+.culture {
+  height: 57px;
+  padding: 30px 0;
+  background: url("./img/culture.png") 0 30px no-repeat; }
+
+.service {
+  height: 57px;
+  padding: 30px 0;
+  background: url("./img/service.png") 0 30px no-repeat; }
 
 .solution-content {
   width: 485px; }
