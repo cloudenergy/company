@@ -26,6 +26,12 @@ $(document).ready(function() {
         $('.news').css('left', m);
     });
     windowResize();
+    $('.nav-solution,.nav-product,.nav-contact').on('mouseenter', function() {
+        $(this).children().addClass('active');
+    })
+    $('.nav-solution,.nav-product,.nav-contact').on('mouseleave', function() {
+        $(this).children().removeClass('active');
+    })
 });
 var slider = new SimpleSlider(document.getElementById('myslider'), {
     autoPlay: true,
