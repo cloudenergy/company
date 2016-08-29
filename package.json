@@ -20,6 +20,7 @@
     "gulp-jshint": "^2.0.1"
   },
   "devDependencies": {
+    "gulp-cache": "^0.4.5",
     "gulp-image": "^2.5.0",
     "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",

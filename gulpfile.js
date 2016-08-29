@@ -1,10 +1,11 @@
 // 引入gulp
 var gulp = require('gulp'),
     // 引入组件
-    browerSync = require('browser-sync'), // browser-sync
+    browserSync = require('browser-sync').create(), // browser-sync
     pkg = require('gulp-packages')(gulp, [
         'concat',
         'rename',
+        'cache',
         'imagemin',
         'sass',
         'jshint'
@@ -24,20 +25,23 @@ var gulp = require('gulp'),
         }
     };
 gulp.task('html', function() {
-    gulp.src(path.src.html)
+    return gulp.src(path.src.html)
         .pipe(gulp.dest(path.dest.html));
 });
 
 gulp.task('sass', function() {
-    gulp.src(path.src.sass)
+    return gulp.src(path.src.sass)
         .pipe(pkg.sass())
         .pipe(pkg.rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest(path.dest.css));
+        .pipe(gulp.dest(path.dest.css))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 gulp.task('js', function() {
-    gulp.src(path.src.js)
+    return gulp.src(path.src.js)
         .pipe(pkg.jshint())
         .pipe(pkg.jshint.reporter('default'))
         .pipe(pkg.rename({
@@ -48,36 +52,31 @@ gulp.task('js', function() {
 
 gulp.task('imagemin', function() {
     gulp.src(path.src.img)
-        .pipe(pkg.imagemin())
+        .pipe(pkg.cache(pkg.imagemin({
+            progressive: true,
+            interlaced: true
+        })))
         .pipe(gulp.dest(path.dest.img))
 });
-gulp.task('browserSync', function() {
+gulp.task('watch', ['html', 'sass', 'js', 'imagemin'], browserSync.reload);
+gulp.task('browserSync', ['html', 'sass', 'js', 'imagemin'], function() {
     var files = [
         path.dest.html,
         path.dest.css,
         path.dest.js,
         path.dest.img
     ];
-    browerSync.init(files, {
-        server: {
-            baseDir: './',
-            directory: true
-        },
+    browserSync.init(files, {
+        proxy: "www.gugecc.com",
         open: false
     });
+    gulp.watch(path.src.sass, ['sass']);
+    gulp.watch(path.src.html, ['html']);
+    gulp.watch(path.src.js, ['watch']);
+    gulp.watch(path.src.img, ['imagemin']);
 });
 
 
 gulp.task('default', function() {
     gulp.start('html', 'sass', 'js', 'imagemin', 'browserSync');
-    gulp.watch(path.src.html, function() {
-        gulp.run('browserSync');
-    });
-});
-
-gulp.task('watch', function() {
-    //监听HTML
-    gulp.watch(path.src.html, function() {
-        gulp.run('html');
-    });
 });
