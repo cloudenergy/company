@@ -56,10 +56,6 @@ a {
     width: 30%
 }
 
-.w-1p {
-    width: 1%
-}
-
 .h-1000 {
     height: 1000px;
 }
@@ -94,6 +90,10 @@ a {
 
 .m-t-50 {
     margin-top: 50px;
+}
+
+.m-t-20 {
+    margin-top: 20px;
 }
 
 .m-t-200 {
@@ -132,7 +132,7 @@ a {
 }
 
 header {
-    width: 100%;
+    max-width: 1920px;
 }
 
 .nav-container {
@@ -192,10 +192,28 @@ header {
     }
 }
 
-#myslider {
+.security-banner-position {
+    top: 15%;
+}
+
+.security-banner-title {
+    color: #4e91e0;
+    font-size: 40px;
+}
+
+.security-banner-text {
+    line-height: 40px;
+}
+
+.security-img {
+    max-width: 1920px;
     img {
         max-width: 100%;
     }
+}
+
+#myslider {
+    max-width: 100%;
 }
 
 .news {

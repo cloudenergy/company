@@ -28,15 +28,11 @@ $(document).ready(function() {
 
     function windowResize() {
         var h = $('.banner img').height();
-        var m = $('.banner').css('margin-left');
         $('.banner').height(h);
-        $('.news').css('left', m);
     }
     $(window).resize(function windowResize() {
         var h = $('.banner img').height();
-        var m = $('.banner').css('margin-left');
         $('.banner').height(h);
-        $('.news').css('left', m);
     });
     windowResize();
     $('.nav-solution,.nav-product,.nav-contact').on('mouseenter', function() {
