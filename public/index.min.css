@@ -4,7 +4,7 @@
   border: none;
   list-style: none;
   font-size: 18px;
-  font-family: "Microsoft YaHei"; }
+  font-family: Helvetica, Tahoma, Arial, STXihei, "Microsoft YaHei", sans-serif; }
 
 html,
 body {
@@ -34,6 +34,9 @@ a {
 .right {
   float: right; }
 
+.clearfix {
+  overflow: auto; }
+
 .w-100p {
   width: 100%; }
 
@@ -43,17 +46,20 @@ a {
 .w-1p {
   width: 1%; }
 
+.h-1000 {
+  height: 1000px; }
+
 .f-s-16 {
   font-size: 16px; }
 
 .p-t-8p {
   padding-top: 8%; }
 
-.clearfix {
-  overflow: auto; }
-
 .p-t-20 {
   padding-top: 20px; }
+
+.p-t-50 {
+  padding-top: 50px; }
 
 .m-b-20 {
   margin-bottom: 20px; }
@@ -66,6 +72,9 @@ a {
 
 .m-t-50 {
   margin-top: 50px; }
+
+.m-t-200 {
+  margin-top: 200px; }
 
 .bg-white {
   background-color: #fff; }
@@ -81,6 +90,11 @@ a {
 
 .tx-right {
   text-align: right; }
+
+.main-title {
+  font-size: 40px;
+  color: #000;
+  padding: 50px 0; }
 
 .content-title {
   color: #6080a6;
@@ -142,12 +156,18 @@ header {
   .banner img {
     max-width: 100%; }
 
+.demand {
+  background-color: rgba(0, 0, 0, 0.5); }
+  .demand p {
+    line-height: 32px;
+    color: #fff; }
+
 #myslider img {
   max-width: 100%; }
 
 .news {
   bottom: 0;
-  z-index: 99;
+  z-index: 9999;
   width: 100%;
   max-width: 1920px;
   height: 100px; }
