@@ -27,12 +27,12 @@ $(document).ready(function() {
     }
 
     function windowResize() {
-        var h = $('.banner img').height();
-        $('.banner').height(h);
+        var h = $('.inner-height img').height();
+        $('.inner-height').height(h);
     }
     $(window).resize(function windowResize() {
-        var h = $('.banner img').height();
-        $('.banner').height(h);
+        var h = $('.inner-height img').height();
+        $('.inner-height').height(h);
     });
     windowResize();
     $('.nav-solution,.nav-product,.nav-contact').on('mouseenter', function() {
