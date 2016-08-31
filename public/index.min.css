@@ -73,6 +73,9 @@ a {
 .m-t-20 {
   margin-top: 20px; }
 
+.m-t-80 {
+  margin-top: 80px; }
+
 .m-t-200 {
   margin-top: 200px; }
 
@@ -172,11 +175,6 @@ header {
 .security-banner-text {
   line-height: 40px; }
 
-.security-img {
-  max-width: 1920px; }
-  .security-img img {
-    max-width: 100%; }
-
 #myslider {
   max-width: 100%; }
 
@@ -218,6 +216,10 @@ header {
     .content .container .content-service {
       color: #000;
       line-height: 60px; }
+
+.content-text {
+  color: #6c6e6f;
+  line-height: 60px; }
 
 .content-btn {
   color: #7fb0e6;
