@@ -58,8 +58,14 @@ a {
 .p-t-50 {
   padding-top: 50px; }
 
+.p-b-50 {
+  padding-bottom: 50px !important; }
+
 .m-b-20 {
   margin-bottom: 20px; }
+
+.p-b-0 {
+  padding-bottom: 0 !important; }
 
 .m-l-15 {
   margin-left: 15px; }
