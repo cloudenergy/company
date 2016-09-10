@@ -30,7 +30,7 @@ $(document).ready(function() {
         var h = $('.inner-height img').height();
         $('.inner-height').height(h);
     }
-    $(window).resize(function windowResize() {
+    $(window).resize(function() {
         var h = $('.inner-height img').height();
         $('.inner-height').height(h);
     });
