@@ -6,10 +6,10 @@ $(document).ready(function() {
         }
     }
     var bannerSrc = [
-        './img/banner02.png',
-        './img/banner03.png',
-        './img/banner04.png',
-        './img/banner05.png'
+        'assets/img/banner02.png',
+        'assets/img/banner03.png',
+        'assets/img/banner04.png',
+        'assets/img/banner05.png'
     ];
     if ($('#myslider')[0]) {
         imgLoad(bannerSrc, '#myslider');
