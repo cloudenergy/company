@@ -163,7 +163,8 @@ header {
 .banner {
   max-width: 1920px; }
   .banner img {
-    max-width: 100%; }
+    max-width: 100%;
+    min-height: 520px; }
 
 .demand {
   background-color: rgba(0, 0, 0, 0.5); }

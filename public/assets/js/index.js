@@ -1,19 +1,12 @@
 $(document).ready(function() {
-    function imgLoad(src, element) {
-        for (var i = 0; i < src.length; i++) {
-            var img = $(element + ' ' + 'img')[i];
-            img.src = src[i];
+    function imgLoad() {
+        var img = $('img[origin-src]');
+        for (var i = 0; i < img.length; i++) {
+            img[i].src = img[i].attributes['origin-src'].value;
         }
     }
-    var bannerSrc = [
-        'assets/img/banner01.png',
-        'assets/img/banner02.png',
-        'assets/img/banner03.png',
-        'assets/img/banner04.png',
-        'assets/img/banner05.png'
-    ];
     if ($('#myslider')[0]) {
-        imgLoad(bannerSrc, '#myslider');
+        imgLoad();
         var slider = new SimpleSlider(document.getElementById('myslider'), {
             autoPlay: true,
             transitionProperty: 'opacity',
@@ -28,12 +21,12 @@ $(document).ready(function() {
     }
 
     function windowResize() {
-        var h = $('.inner-height img').height();
-        $('.inner-height').height(h);
+        var h = $('.inner-height').width();
+        $('.inner-height').height(h * 1000 / 1920);
     }
     $(window).resize(function() {
-        var h = $('.inner-height img').height();
-        $('.inner-height').height(h);
+        var h = $('.inner-height').width();
+        $('.inner-height').height(h * 1000 / 1920);
     });
     windowResize();
     $('.nav-solution,.nav-product,.nav-contact').on('mouseenter', function() {
