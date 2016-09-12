@@ -1,11 +1,12 @@
 $(document).ready(function() {
-    function imgLoad(src, element1) {
+    function imgLoad(src, element) {
         for (var i = 0; i < src.length; i++) {
-            var img = $(element1 + ' ' + 'img')[i + 1];
+            var img = $(element + ' ' + 'img')[i];
             img.src = src[i];
         }
     }
     var bannerSrc = [
+        'assets/img/banner01.png',
         'assets/img/banner02.png',
         'assets/img/banner03.png',
         'assets/img/banner04.png',
