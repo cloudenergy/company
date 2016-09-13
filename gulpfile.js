@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     pkg = require('gulp-packages')(gulp, [
         'autoprefixer',
+        'file-include',
         'cache',
         'clean-css',
         'htmlmin',
@@ -108,8 +109,11 @@ gulp.task('build-js', ['del-html-js'], function() {
 /**
  * html
  */
+
 gulp.task('build-html', ['build-css', 'build-js'], function() {
-    return gulp.src(paths.src + '**/*.html').pipe(pkg.htmlmin({
+    return gulp.src(paths.src + '**/*.html').pipe(pkg.ignore.exclude(['nav.html', 'footer.html', 'head.html'])).pipe(pkg.fileInclude({
+        prefix: '@@'
+    })).pipe(pkg.htmlmin({
         collapseWhitespace: true,
         removeComments: true
     })).pipe(pkg.revReplace({
