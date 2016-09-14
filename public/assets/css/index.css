@@ -40,6 +40,9 @@ img {
 .clearfix {
   overflow: auto; }
 
+.h-60 {
+  height: 60px; }
+
 .w-100p {
   width: 100%; }
 
