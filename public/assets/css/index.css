@@ -235,6 +235,9 @@ header {
   line-height: 60px; }
 
 .content-btn {
+  display: block;
+  text-align: center;
+  line-height: 50px;
   color: #7fb0e6;
   border: 1px solid #7fb0e6;
   border-radius: 10px;
