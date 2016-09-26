@@ -144,6 +144,13 @@ img {
     background-color: #f6f4f4;
 }
 
+.bg-news {
+    background-color: #000;
+    opacity: 0.4;
+    height: 10%!important;
+    width: 100%;
+}
+
 .tx-center {
     text-align: center;
 }
@@ -312,6 +319,21 @@ header {
     width: 120px;
     height: 50px;
     margin-top: 60px;
+}
+
+.news-container {
+    height: 100%;
+    width: 100%;
+    display: table;
+    span {
+        display: table-cell;
+        vertical-align: middle;
+        img {
+            margin-left: 20px;
+            height: 62.5%;
+            opacity: 1!important;
+        }
+    }
 }
 
 .company {
